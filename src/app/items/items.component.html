@@ -5,14 +5,17 @@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Price</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
-        <!-- <tr *ngFor="let country of countries; index as i"> -->
-        <tr>
-            <td>Sample</td>
-            <td>This is a long winded description of an item</td>
-            <td>15 $</td>
+        <tr *ngFor="let item of items">
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.price }} $</td>
+            <td>
+                <button type="button" class="btn btn-success">Order</button>
+            </td>
         </tr>
     </tbody>
 </table>
