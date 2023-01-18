@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
+import { ItemsComponent } from './items/items.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -27,7 +28,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent
+    ProfileComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserModule,

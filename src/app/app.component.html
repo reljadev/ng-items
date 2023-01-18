@@ -1,52 +1,26 @@
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
+
+  <!-- Items -->
   <li ngbNavItem>
     <a ngbNavLink>Items</a>
     <ng-template ngbNavContent>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr *ngFor="let country of countries; index as i"> -->
-          <tr>
-            <td>Sample</td>
-            <td>This is a long winded description of an item</td>
-            <td>15 $</td>
-          </tr>
-        </tbody>
-      </table>
+      <iinv-items></iinv-items>
     </ng-template>
   </li>
+
+  <!-- My Profile -->
   <li ngbNavItem>
     <a ngbNavLink>My Profile</a>
     <ng-template ngbNavContent>
-      <ng-container *ngIf="userProfile">
-        <h2>User info</h2>
-        <table>
-          <tr *ngIf="userProfile.username">
-            <th scope="row">Username</th>
-            <td>{{ userProfile.username }}</td>
-          </tr>
-          <tr *ngIf="userProfile.firstName">
-            <th scope="row">First name</th>
-            <td>{{ userProfile.firstName }}</td>
-          </tr>
-          <tr *ngIf="userProfile.lastName">
-            <th scope="row">Last name</th>
-            <td>{{ userProfile.lastName }}</td>
-          </tr>
-        </table>
-      </ng-container>
-      User items should be here !
+      <iinv-profile></iinv-profile>
     </ng-template>
   </li>
+
+  <!-- Auth buttons -->
   <li ngbNavItem class="ms-auto">
     <button *ngIf="!isLoggedIn" (click)="login()" class="btn btn-primary">Login</button>
     <button *ngIf="isLoggedIn" (click)="logout()" class="btn btn-primary">Logout</button>
   </li>
+
 </ul>
 <div [ngbNavOutlet]="nav"></div>
