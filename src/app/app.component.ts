@@ -8,7 +8,6 @@ import { KeycloakProfile } from 'keycloak-js';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'itemsinventoryapp';
   isLoggedIn = false;
   userProfile: KeycloakProfile | null = null;
 

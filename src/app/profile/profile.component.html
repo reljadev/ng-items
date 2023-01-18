@@ -1,5 +1,7 @@
-<!-- <ng-container *ngIf="userProfile">
-    <h2>User info</h2>
+<ng-container *ngIf="userProfile">
+
+    <!-- User's profile -->
+    <h2>User Profile</h2>
     <table>
         <tr *ngIf="userProfile.username">
             <th scope="row">Username</th>
@@ -14,5 +16,10 @@
             <td>{{ userProfile.lastName }}</td>
         </tr>
     </table>
-</ng-container> -->
-User items should be here !
+
+    <!-- User's items -->
+    <h2>User Items</h2>
+    User items should be here !
+
+</ng-container>
+<h5 *ngIf="!isLoggedIn" class="text-center">You aren't logged in yet! Please authenticate in order to see your items.</h5>
