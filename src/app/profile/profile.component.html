@@ -7,6 +7,10 @@
             <th scope="row">Username</th>
             <td>{{ userProfile.username }}</td>
         </tr>
+        <tr *ngIf="userProfile.email">
+            <th scope="row">Email</th>
+            <td>{{ userProfile.email }}</td>
+        </tr>
         <tr *ngIf="userProfile.firstName">
             <th scope="row">First name</th>
             <td>{{ userProfile.firstName }}</td>
@@ -19,7 +23,25 @@
 
     <!-- User's items -->
     <h2>User Items</h2>
-    User items should be here !
+    <p *ngIf="finishedLoadingItems && userItems.length == 0">You have no items yet!</p>
+    <table *ngIf="userItems.length != 0" class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Date acquired</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of userItems">
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.acquiredDate }}</td>
+            </tr>
+        </tbody>
+    </table>
 
 </ng-container>
 <h5 *ngIf="!isLoggedIn" class="text-center">You aren't logged in yet! Please authenticate in order to see your items.</h5>

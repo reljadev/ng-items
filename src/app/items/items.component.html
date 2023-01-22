@@ -14,7 +14,7 @@
             <td>{{ item.description }}</td>
             <td>{{ item.price }} $</td>
             <td>
-                <button type="button" class="btn btn-success">Order</button>
+                <button type="button" (click)="orderItem(item.id)" class="btn btn-success">Order</button>
             </td>
         </tr>
     </tbody>
