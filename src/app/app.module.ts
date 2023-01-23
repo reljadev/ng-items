@@ -22,6 +22,15 @@ function initializeKeycloak(keycloak: KeycloakService) {
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html',
         pkceMethod: "S256"
+      },
+      shouldAddToken: (request) => {
+        const { method, url } = request;
+    
+        const isGetRequest = 'GET' === method.toUpperCase();
+        const excludedUrls = ["https://localhost:7229/items"];
+        const isExcludedUrlMatch = excludedUrls.includes(url);
+    
+        return !(isGetRequest && isExcludedUrlMatch);
       }
     });
 }
