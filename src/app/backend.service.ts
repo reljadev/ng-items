@@ -15,6 +15,7 @@ export class BackendService {
   }
 
   getUserItems(): Observable<UserItemType[]> {
+    // NOTE: this.keycloak.getKeycloakInstance().tokenParsed could be used instead !
     return from(this.keycloak.isLoggedIn()).pipe(
             switchMap(isLogged => {
               if(isLogged) {
