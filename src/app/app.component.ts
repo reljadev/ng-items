@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
-import { KeycloakProfile } from 'keycloak-js';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'iinv-root',
@@ -9,15 +9,13 @@ import { KeycloakProfile } from 'keycloak-js';
 })
 export class AppComponent {
   isLoggedIn = false;
-  userProfile: KeycloakProfile | null = null;
 
   constructor(private readonly keycloak: KeycloakService) {}
 
-  public async ngOnInit() {
-    this.isLoggedIn = await this.keycloak.isLoggedIn();
-    if(this.isLoggedIn) {
-      this.userProfile = await this.keycloak.loadUserProfile();
-    }
+  public ngOnInit() {
+    from(this.keycloak.isLoggedIn()).subscribe(isLogged => {
+      this.isLoggedIn = isLogged;
+    });
   }
 
   login() {
