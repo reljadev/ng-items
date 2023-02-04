@@ -5,4 +5,5 @@ RUN npm install
 RUN npm run build --prod
 
 FROM nginx:alpine
+COPY nginx.conf /etc/nginx/
 COPY --from=node /app/dist/itemsinventoryapp /usr/share/nginx/html

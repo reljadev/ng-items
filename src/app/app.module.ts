@@ -13,7 +13,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8080',
+        url: 'http://localhost:8080/',
         realm: 'samplerealm',
         clientId: 'sampleclient'
       },
@@ -27,7 +27,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
         const { method, url } = request;
     
         const isGetRequest = 'GET' === method.toUpperCase();
-        const excludedUrls = ["https://localhost:7229/items"];
+        // const excludedUrls = ["https://localhost:7229/items"];
+        const excludedUrls = ["http://localhost:5214/items"];
         const isExcludedUrlMatch = excludedUrls.includes(url);
     
         return !(isGetRequest && isExcludedUrlMatch);
